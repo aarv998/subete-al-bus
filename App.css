@@ -1,0 +1,236 @@
+﻿/* ===============================
+   Fondo general
+================================= */
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #f6c18b;
+    color: #222;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    min-height: 100vh;
+    margin: 0;
+    padding: 0rem 0; /* 👈 antes era 2rem 1rem */
+    text-align: center;
+    overflow-x: hidden; /* 👈 evita scroll lateral */
+}
+
+
+/* ===============================
+   Logo principal
+================================= */
+.logo-img {
+    width: 220px;
+    height: auto;
+    border-radius: 12px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.25);
+    margin-bottom: 1rem;
+    transition: transform 0.2s ease;
+}
+
+    .logo-img:hover {
+        transform: scale(1.05);
+    }
+
+/* ===============================
+   Cuadro central (bloque jugadores)
+================================= */
+.flex-col.items-center.justify-center.text-center.bg-white\/20 {
+    background-color: rgba(255, 255, 255, 0.2);
+    border: 2px solid rgba(255, 255, 255, 0.4);
+    border-radius: 16px;
+    padding: 2.5rem;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    backdrop-filter: blur(8px);
+    transition: all 0.3s ease;
+    height: 510px;
+    width: 90%;
+    max-width: 400px;
+    margin: 2rem auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    gap: 1.5rem;
+}
+
+    .flex-col.items-center.justify-center.text-center.bg-white\/20:hover {
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+        transform: translateY(-3px);
+    }
+
+/* ===============================
+   Campo de añadir jugador (globo completo)
+================================= */
+.input-group {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: rgba(255, 255, 255, 0.3);
+    border-radius: 9999px;
+    padding: 0.5rem 1rem;
+    width: 100%;
+    max-width: 320px;
+    margin: 0 auto;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+}
+
+    .input-group:hover {
+        background-color: rgba(255, 255, 255, 0.45);
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.25);
+    }
+
+    /* Icono de jugador a la izquierda */
+    .input-group svg {
+        color: #2b1b0f;
+        margin-right: 0.6rem;
+        flex-shrink: 0;
+    }
+
+    /* Input perfectamente integrado */
+    .input-group input {
+        background: transparent;
+        border: none;
+        outline: none;
+        font-size: 1rem;
+        font-weight: 500;
+        color: #1a1a1a;
+        flex-grow: 1;
+        text-align: left;
+        padding: 0.3rem 0;
+    }
+
+    /* Botón "+" redondo dentro del globo */
+    .input-group button.add-player {
+        background-color: rgba(0, 0, 0, 0.15);
+        border: none;
+        color: #1a1a1a;
+        font-size: 1.2rem;
+        cursor: pointer;
+        width: 28px;
+        height: 28px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.25s ease;
+    }
+
+        .input-group button.add-player:hover {
+            background-color: rgba(0, 0, 0, 0.25);
+            color: white;
+            transform: scale(1.05);
+        }
+
+    /* Estado activo al enfocar el input */
+    .input-group:focus-within {
+        background-color: rgba(255, 255, 255, 0.55);
+        box-shadow: 0 6px 14px rgba(0, 0, 0, 0.25);
+    }
+
+/* ===============================
+   Tarjetas de jugador (chips)
+================================= */
+.flex.items-center.bg-\[\#ff5b5b\].text-white {
+    display: inline-flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #53242469;
+    color: #0a0a0d;
+    padding: 8px 14px;
+    margin: 6px;
+    border-radius: 9999px;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+    animation: pop 0.3s ease-in-out;
+    font-weight: 500;
+    font-size: 0.95rem;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+    .flex.items-center.bg-\[\#ff5b5b\].text-white:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 5px 8px rgba(0, 0, 0, 0.25);
+    }
+
+    /* Botón “X” dentro del chip */
+    .flex.items-center.bg-\[\#ff5b5b\].text-white button {
+        background-color: transparent;
+        border: none;
+        color: #0a0a0d;
+        font-weight: bold;
+        cursor: pointer;
+        font-size: 1rem;
+        margin-left: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        width: 24px;
+        height: 24px;
+        transition: all 0.2s ease;
+    }
+
+        .flex.items-center.bg-\[\#ff5b5b\].text-white button:hover {
+            background-color: rgba(0, 0, 0, 0.15);
+            transform: scale(1.1);
+        }
+
+/* ===============================
+   Contenedor de chips
+================================= */
+.jugadores-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 10px;
+}
+
+/* ===============================
+   Botón principal (Play)
+================================= */
+.bg-black.rounded-full {
+    background-color: black;
+    color: white;
+    border-radius: 50%;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+    margin-top: 1.5rem;
+}
+
+    .bg-black.rounded-full:hover {
+        transform: scale(1.05);
+        box-shadow: 0 12px 25px rgba(0, 0, 0, 0.4);
+    }
+
+/* ===============================
+   Texto inferior
+================================= */
+.text-center.text-sm.text-gray-700 {
+    font-size: 0.95rem;
+    font-style: italic;
+    color: #2a2a2a;
+    margin-top: 0.5rem;
+}
+
+/* ===============================
+   Animaciones
+================================= */
+@keyframes pop {
+    0% {
+        transform: scale(0.8);
+        opacity: 0;
+    }
+
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
